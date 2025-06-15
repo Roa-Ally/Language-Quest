@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: b8c8ed85559b8d346a9e031a4fbd25d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8582026540965687098
+    second: Brick and Dirt Tile Flipped Tiles_0
+  - first:
+      213: -1628706346704409993
+    second: Brick and Dirt Tile Flipped Tiles_1
+  - first:
+      213: 5740660346118415484
+    second: Brick and Dirt Tile Flipped Tiles_2
+  - first:
+      213: -8444707969078423037
+    second: Brick and Dirt Tile Flipped Tiles_3
+  - first:
+      213: 1269971813943127791
+    second: Brick and Dirt Tile Flipped Tiles_4
+  - first:
+      213: 7286081829772781562
+    second: Brick and Dirt Tile Flipped Tiles_5
+  - first:
+      213: -8928624945951256467
+    second: Brick and Dirt Tile Flipped Tiles_6
+  - first:
+      213: 3472007618441487145
+    second: Brick and Dirt Tile Flipped Tiles_7
+  - first:
+      213: -1849918624497821943
+    second: Brick and Dirt Tile Flipped Tiles_8
+  - first:
+      213: -1731118937860268172
+    second: Brick and Dirt Tile Flipped Tiles_9
+  - first:
+      213: 8751764098272066693
+    second: Brick and Dirt Tile Flipped Tiles_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 776
+        width: 485
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3feb336bab791770800000000000000
+      internalID: 8582026540965687098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 755
+        width: 480
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c742f826b2ceaaf40800000000000000
+      internalID: 5740660346118415484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 2258
+        y: 758
+        width: 480
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3029b2718de5eca80800000000000000
+      internalID: -8444707969078423037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 423
+        width: 436
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feea6dcd2a8df9110800000000000000
+      internalID: 1269971813943127791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 420
+        width: 473
+        height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6052e3eae6271480800000000000000
+      internalID: -8928624945951256467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 252
+        width: 485
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9079d63ffc4c356e0800000000000000
+      internalID: -1849918624497821943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 24
+        width: 436
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f13e47f74d9f7e0800000000000000
+      internalID: -1731118937860268172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick and Dirt Tile Flipped Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 21
+        width: 486
+        height: 395
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cf58b1413847970800000000000000
+      internalID: 8751764098272066693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ddb80616833135642889d648eec36204
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Brick and Dirt Tile Flipped Tiles_0: 8582026540965687098
+      Brick and Dirt Tile Flipped Tiles_1: -1628706346704409993
+      Brick and Dirt Tile Flipped Tiles_10: 8751764098272066693
+      Brick and Dirt Tile Flipped Tiles_2: 5740660346118415484
+      Brick and Dirt Tile Flipped Tiles_3: -8444707969078423037
+      Brick and Dirt Tile Flipped Tiles_4: 1269971813943127791
+      Brick and Dirt Tile Flipped Tiles_5: 7286081829772781562
+      Brick and Dirt Tile Flipped Tiles_6: -8928624945951256467
+      Brick and Dirt Tile Flipped Tiles_7: 3472007618441487145
+      Brick and Dirt Tile Flipped Tiles_8: -1849918624497821943
+      Brick and Dirt Tile Flipped Tiles_9: -1731118937860268172
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
