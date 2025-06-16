@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float horizontalInput;
-    float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 20f;
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
 
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        spriteRenderer.flipX = horizontalInput > 0;
+        spriteRenderer.flipX = horizontalInput < 0;
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
     }
 }
