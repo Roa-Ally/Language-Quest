@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 891357de687158b41b9fd3a43d1e4ab0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1779579056957766576
+    second: plants silhouette hanging_0
+  - first:
+      213: 4379537265847718303
+    second: plants silhouette hanging_1
+  - first:
+      213: -8250779363448786080
+    second: plants silhouette hanging_2
+  - first:
+      213: 5925426804086302778
+    second: plants silhouette hanging_3
+  - first:
+      213: 7895766983057063133
+    second: plants silhouette hanging_4
+  - first:
+      213: 8032394002026681583
+    second: plants silhouette hanging_5
+  - first:
+      213: -212063110294904363
+    second: plants silhouette hanging_6
+  - first:
+      213: 5160713031159404962
+    second: plants silhouette hanging_7
+  - first:
+      213: 3874170020439646429
+    second: plants silhouette hanging_8
+  - first:
+      213: -8788590831057597542
+    second: plants silhouette hanging_9
+  - first:
+      213: 4707446635790096753
+    second: plants silhouette hanging_10
+  - first:
+      213: -1417882733508362077
+    second: plants silhouette hanging_11
+  - first:
+      213: -7547134171311940183
+    second: plants silhouette hanging_12
+  - first:
+      213: -9078090171889764056
+    second: plants silhouette hanging_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: plants silhouette hanging_0
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1624
+        width: 434
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054ce4cb64aad47e0800000000000000
+      internalID: -1779579056957766576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_1
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 1763
+        width: 603
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91507380fd37cc30800000000000000
+      internalID: 4379537265847718303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_2
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 1703
+        width: 285
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063f28922e75f7d80800000000000000
+      internalID: -8250779363448786080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1132
+        width: 648
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a386428b8485b3250800000000000000
+      internalID: 5925426804086302778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_4
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 1367
+        width: 408
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcbf5ecc36639d60800000000000000
+      internalID: 7895766983057063133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_5
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 1250
+        width: 368
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe457c299cbc87f60800000000000000
+      internalID: 8032394002026681583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_6
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 417
+        width: 563
+        height: 635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d168e889b99e0df0800000000000000
+      internalID: -212063110294904363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_7
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 922
+        width: 563
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a95cf1c8298e9740800000000000000
+      internalID: 5160713031159404962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_8
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 458
+        width: 349
+        height: 793
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0e5cb7b11d3c530800000000000000
+      internalID: 3874170020439646429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_9
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 899
+        width: 141
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b8e8ef337a80680800000000000000
+      internalID: -8788590831057597542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_10
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 980
+        width: 130
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179506d26c5345140800000000000000
+      internalID: 4707446635790096753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_11
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 147
+        width: 210
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a003188a2ba25ce0800000000000000
+      internalID: -1417882733508362077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_12
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 196
+        width: 382
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad5db62571334790800000000000000
+      internalID: -7547134171311940183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plants silhouette hanging_13
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 127
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829bb812615240280800000000000000
+      internalID: -9078090171889764056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      plants silhouette hanging_0: -1779579056957766576
+      plants silhouette hanging_1: 4379537265847718303
+      plants silhouette hanging_10: 4707446635790096753
+      plants silhouette hanging_11: -1417882733508362077
+      plants silhouette hanging_12: -7547134171311940183
+      plants silhouette hanging_13: -9078090171889764056
+      plants silhouette hanging_2: -8250779363448786080
+      plants silhouette hanging_3: 5925426804086302778
+      plants silhouette hanging_4: 7895766983057063133
+      plants silhouette hanging_5: 8032394002026681583
+      plants silhouette hanging_6: -212063110294904363
+      plants silhouette hanging_7: 5160713031159404962
+      plants silhouette hanging_8: 3874170020439646429
+      plants silhouette hanging_9: -8788590831057597542
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
