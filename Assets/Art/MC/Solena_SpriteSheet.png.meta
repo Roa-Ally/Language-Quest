@@ -118,12 +118,12 @@ TextureImporter:
       name: Solena_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 1386
-        width: 846
-        height: 1059
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 1250
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: Solena_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 1501
-        y: 1286
-        width: 729
-        height: 1146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1250
+        y: 1250
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Solena_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 2695
-        y: 1313
-        width: 804
-        height: 1105
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2500
+        y: 1250
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Solena_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 229
-        y: 57
-        width: 756
-        height: 1122
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 0
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: Solena_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1415
-        y: 57
-        width: 824
-        height: 1126
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1250
+        y: 0
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Solena_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 2774
-        y: 15
-        width: 606
-        height: 1212
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2500
+        y: 0
+        width: 1250
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -260,7 +260,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":25.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"autoSlicingMethod":0,"spriteAlignment":1,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":1250.0,"y":1250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Solena_SpriteSheet_0: -2803633874239151393
       Solena_SpriteSheet_1: 2874031249617295015
