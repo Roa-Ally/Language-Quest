@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = false;
 
     private bool isCurrentlyMoving = false;
+    private bool _canMove = true; // Add this flag to control movement
     private Rigidbody2D _rb;
 
     private Animator _animator;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (!_canMove) return; // Don't process input if movement is disabled
+        
         _horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
 
@@ -38,9 +41,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_canMove) 
+        {
+            // Stop movement when disabled
+            _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
+            _animator.SetFloat("xVelocity", 0);
+            return;
+        }
+        
         _rb.linearVelocity = new Vector2(_horizontalInput * _moveSpeed, _rb.linearVelocity.y);
         _animator.SetFloat("xVelocity", Math.Abs(_rb.linearVelocity.x));
         _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
+    }
+
+    // Add method to stop player movement (for dialogue system)
+    public void StopMovement()
+    {
+        _canMove = false;
+        _horizontalInput = 0;
+    }
+
+    // Add method to resume player movement
+    public void ResumeMovement()
+    {
+        _canMove = true;
     }
 
     private void FlipSprite()
