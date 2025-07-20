@@ -32,11 +32,11 @@ public class FragmentDisplayManager : MonoBehaviour
         if (fragmentPanel != null)
             fragmentPanel.SetActive(true);
         if (titleText != null)
-            titleText.text = "📜 Story Fragment Unlocked!";
+            titleText.text = "Story Fragment Unlocked!";
         if (fragmentText != null)
             fragmentText.text = fragment;
         if (buttonText != null)
-            buttonText.text = "📖 Add to Journal";
+            buttonText.text = "Add to Journal";
         onAddToJournal = onAdd;
     }
 
