@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded = false;
 
     private bool isCurrentlyMoving = false;
+    private bool _movementEnabled = true;
     private Rigidbody2D _rb;
 
     private Animator _animator;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (!_movementEnabled) return;
+        
         _horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
 
@@ -38,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_movementEnabled) return;
+        
         _rb.linearVelocity = new Vector2(_horizontalInput * _moveSpeed, _rb.linearVelocity.y);
         _animator.SetFloat("xVelocity", Math.Abs(_rb.linearVelocity.x));
         _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
@@ -58,6 +63,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGrounded = true;
         _animator.SetBool("isJumping", !_isGrounded);
+    }
+
+    public void StopMovement()
+    {
+        _movementEnabled = false;
+        _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
+        _animator.SetFloat("xVelocity", 0);
+    }
+
+    public void ResumeMovement()
+    {
+        _movementEnabled = true;
     }
 
     
