@@ -3239,8 +3239,8 @@ Transform:
   m_GameObject: {fileID: 296911920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.3, y: -13.2, z: 0}
-  m_LocalScale: {x: 515, y: 150.008, z: 1}
+  m_LocalPosition: {x: 123.4, y: -13.2, z: 0}
+  m_LocalScale: {x: 620, y: 150.008, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7710,11 +7710,7 @@ MonoBehaviour:
   choicePrefab: {fileID: 1742042395880858763, guid: 748cca674b5874d46a2bc88c9d4273b4, type: 3}
   continueIndicator: {fileID: 912231068}
   showDebugInfo: 1
-  debugButtonColor:
-    r: 0.2
-    g: 0.2
-    b: 0.2
-    a: 1
+  debugButtonColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &901843875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14322,7 +14318,7 @@ Transform:
   m_GameObject: {fileID: 1959488414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -120.2, y: -11.230001, z: -10}
+  m_LocalPosition: {x: -120.200005, y: -11.230002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
