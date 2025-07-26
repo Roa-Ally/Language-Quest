@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 6becb8bea7e7f18429362f90e75b2b16
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6906082620464162574
+    second: Foliage Purple 1_0
+  - first:
+      213: 1822564936907850158
+    second: Foliage Purple 1_1
+  - first:
+      213: -3772035294647039040
+    second: Foliage Purple 1_2
+  - first:
+      213: 8859259548533557619
+    second: Foliage Purple 1_3
+  - first:
+      213: -4028672267091200183
+    second: Foliage Purple 1_4
+  - first:
+      213: 6544579001871929391
+    second: Foliage Purple 1_5
+  - first:
+      213: -556140739652133670
+    second: Foliage Purple 1_6
+  - first:
+      213: -558925405698639646
+    second: Foliage Purple 1_7
+  - first:
+      213: -5424321402377706019
+    second: Foliage Purple 1_8
+  - first:
+      213: 3337341930563600194
+    second: Foliage Purple 1_9
+  - first:
+      213: -3202041833862798637
+    second: Foliage Purple 1_10
+  - first:
+      213: 2311640512009208981
+    second: Foliage Purple 1_11
+  - first:
+      213: -19052585886139751
+    second: Foliage Purple 1_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Foliage Purple 1_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 834
+        width: 1447
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07e346ad8557df50800000000000000
+      internalID: 6906082620464162574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 814
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1897c572d0b4910800000000000000
+      internalID: 1822564936907850158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 601
+        width: 810
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cbc35672e907abc0800000000000000
+      internalID: -3772035294647039040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_3
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 622
+        width: 386
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379845bfe9962fa70800000000000000
+      internalID: 8859259548533557619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_4
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 409
+        width: 260
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947bf8bfae74718c0800000000000000
+      internalID: -4028672267091200183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 204
+        width: 717
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f209e037de303da50800000000000000
+      internalID: 6544579001871929391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_6
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 351
+        width: 259
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc59ef91f03848f0800000000000000
+      internalID: -556140739652133670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_7
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 435
+        width: 196
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e834690e4c4e38f0800000000000000
+      internalID: -558925405698639646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_8
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 261
+        width: 219
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd56abf7c60f8b4b0800000000000000
+      internalID: -5424321402377706019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 10
+        width: 206
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f7249cdce905e20800000000000000
+      internalID: 3337341930563600194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_10
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 3
+        width: 226
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2eaa0daef0093d0800000000000000
+      internalID: -3202041833862798637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_11
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 9
+        width: 225
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59406be4cc8941020800000000000000
+      internalID: 2311640512009208981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Foliage Purple 1_12
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 10
+        width: 621
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a343a26cf4cbff0800000000000000
+      internalID: -19052585886139751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Foliage Purple 1_0: 6906082620464162574
+      Foliage Purple 1_1: 1822564936907850158
+      Foliage Purple 1_10: -3202041833862798637
+      Foliage Purple 1_11: 2311640512009208981
+      Foliage Purple 1_12: -19052585886139751
+      Foliage Purple 1_2: -3772035294647039040
+      Foliage Purple 1_3: 8859259548533557619
+      Foliage Purple 1_4: -4028672267091200183
+      Foliage Purple 1_5: 6544579001871929391
+      Foliage Purple 1_6: -556140739652133670
+      Foliage Purple 1_7: -558925405698639646
+      Foliage Purple 1_8: -5424321402377706019
+      Foliage Purple 1_9: 3337341930563600194
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
