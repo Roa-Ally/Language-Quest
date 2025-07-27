@@ -7622,7 +7622,7 @@ MonoBehaviour:
   - {fileID: 1447091683}
   delayBetweenSwaps: 0.3
   initialDelay: 1
-  triggerSwap: 0
+  triggerSwap: 1
   hasSwapped: 0
 --- !u!4 &888108495
 Transform:
