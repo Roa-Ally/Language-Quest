@@ -1044,7 +1044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2427834639597121185, guid: 5094a9bc82bdf744195a6746f9556f7a, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2427834639597121185, guid: 5094a9bc82bdf744195a6746f9556f7a, type: 3}
       propertyPath: m_Sprite

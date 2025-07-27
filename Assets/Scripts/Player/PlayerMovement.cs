@@ -31,12 +31,6 @@ public class PlayerMovement : MonoBehaviour
         _horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
-        {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpPower);
-            _isGrounded = false;
-            _animator.SetBool("isJumping", !_isGrounded);
-        }
     }
 
     private void FixedUpdate()
@@ -50,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        if (_isFacingRight && _horizontalInput < 0f || !_isFacingRight && _horizontalInput > 0f)
+        if (_isFacingRight && _horizontalInput > 0f || !_isFacingRight && _horizontalInput < 0f)
         {
             _isFacingRight = !_isFacingRight;
             Vector3 ls = transform.localScale;

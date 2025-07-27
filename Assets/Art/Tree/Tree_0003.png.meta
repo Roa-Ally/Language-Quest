@@ -111,7 +111,7 @@ TextureImporter:
         width: 26
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: Tree_0003_1
       rect:
         serializedVersion: 2
-        x: 1265
+        x: 1191
         y: 459
-        width: 5287
-        height: 6577
+        width: 5604
+        height: 7452
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 037b931ec32d59b4696718259bf809b8
     internalID: 0
     vertices: []
     indices: 
