@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class SpriteSwapController : MonoBehaviour
 {
     [SerializeField] private SpriteSwap[] spriteSwappers;
     [SerializeField] private float delayBetweenSwaps = 0.5f;
