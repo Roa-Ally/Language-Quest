@@ -30,6 +30,16 @@ public class PlayerSpawnManager : MonoBehaviour
         {
             player.transform.position = spawnPoint.position;
             Debug.Log($"Player spawned at: {spawnPoint.name} (Direction: {lastSceneDirection})");
+            
+            // Make sure player is active and enabled
+            player.SetActive(true);
+            
+            // Re-enable player movement if it was disabled
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.ResumeMovement();
+            }
         }
         else
         {

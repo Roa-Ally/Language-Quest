@@ -28,7 +28,7 @@ public class SceneChangeTrigger : MonoBehaviour
         {
             // Set the direction for the next scene
             PlayerSpawnManager.SetSceneDirection(direction.ToString().ToLower());
-            SceneTransitionManager.Instance.TransitionToScene(targetSceneName);
+            SimpleSceneTransition.Instance.TransitionToScene(targetSceneName);
         }
     }
     

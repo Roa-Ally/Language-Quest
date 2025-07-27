@@ -43,8 +43,32 @@ public class SceneTransitionManager : MonoBehaviour
         }
         else if (instance != this)
         {
+            // If we already have an instance, destroy this one
             Destroy(gameObject);
+            return;
         }
+    }
+    
+    private void Start()
+    {
+        // Start with fade overlay invisible
+        if (fadeImage != null)
+        {
+            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
+        }
+        
+        // Listen for scene changes to reset fade
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Don't reset the fade here - let the transition coroutine handle it
     }
     
     private void SetupFadeUI()
@@ -75,6 +99,12 @@ public class SceneTransitionManager : MonoBehaviour
             rectTransform.anchorMax = Vector2.one;
             rectTransform.offsetMin = Vector2.zero;
             rectTransform.offsetMax = Vector2.zero;
+            
+            // Make sure the canvas persists
+            DontDestroyOnLoad(canvasGO);
+            
+            // Ensure the fade image starts invisible
+            fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
         }
     }
     
@@ -96,6 +126,9 @@ public class SceneTransitionManager : MonoBehaviour
         // Load the new scene
         SceneManager.LoadScene(sceneName);
         
+        // Wait for scene to fully load and stabilize
+        yield return new WaitForSeconds(0.1f);
+        
         // Fade from black
         yield return StartCoroutine(FadeFromBlack());
     }
@@ -107,6 +140,9 @@ public class SceneTransitionManager : MonoBehaviour
         
         // Load the new scene
         SceneManager.LoadScene(sceneBuildIndex);
+        
+        // Wait for scene to fully load and stabilize
+        yield return new WaitForSeconds(0.1f);
         
         // Fade from black
         yield return StartCoroutine(FadeFromBlack());
