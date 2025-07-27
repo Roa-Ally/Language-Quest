@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
@@ -13,6 +14,18 @@ public class PlayerSpawnManager : MonoBehaviour
     
     private void Start()
     {
+        // Wait for spawn points to be available
+        StartCoroutine(SpawnPlayerDelayed());
+    }
+    
+    private System.Collections.IEnumerator SpawnPlayerDelayed()
+    {
+        // Wait until spawn points are assigned
+        while (backSpawnPoint == null || defaultSpawnPoint == null)
+        {
+            yield return null; // Wait one frame
+        }
+        
         SpawnPlayer();
     }
     
@@ -49,6 +62,8 @@ public class PlayerSpawnManager : MonoBehaviour
     
     private Transform GetSpawnPoint()
     {
+        Debug.Log($"GetSpawnPoint called. Direction: '{lastSceneDirection}', BackSpawn: {backSpawnPoint != null}, DefaultSpawn: {defaultSpawnPoint != null}");
+        
         switch (lastSceneDirection)
         {
             case "backward":
