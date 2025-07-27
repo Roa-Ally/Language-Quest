@@ -48,17 +48,31 @@ public class PlayerMovement : MonoBehaviour
         if (_animator != null)
         {
             _animator.SetFloat("xVelocity", Math.Abs(_rb.linearVelocity.x));
-            _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
+            // Only set yVelocity if the parameter exists
+            if (HasParameter("yVelocity", _animator))
+            {
+                _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
+            }
         }
     }
 
     private void FlipSprite()
     {
-        if (_isFacingRight && _horizontalInput < 0f || !_isFacingRight && _horizontalInput > 0f)
+        // Flip sprite based on movement direction
+        if (_horizontalInput > 0f && !_isFacingRight)
         {
-            _isFacingRight = !_isFacingRight;
+            // Moving right, flip to face right
+            _isFacingRight = true;
             Vector3 ls = transform.localScale;
-            ls.x *= -1f;
+            ls.x = Mathf.Abs(ls.x); // Make sure it's positive (facing right)
+            transform.localScale = ls;
+        }
+        else if (_horizontalInput < 0f && _isFacingRight)
+        {
+            // Moving left, flip to face left
+            _isFacingRight = false;
+            Vector3 ls = transform.localScale;
+            ls.x = -Mathf.Abs(ls.x); // Make sure it's negative (facing left)
             transform.localScale = ls;
         }
     }
@@ -85,5 +99,14 @@ public class PlayerMovement : MonoBehaviour
         _movementEnabled = true;
     }
 
-    
+    // Helper method to check if animator parameter exists
+    private bool HasParameter(string paramName, Animator animator)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName)
+                return true;
+        }
+        return false;
+    }
 }

@@ -39,8 +39,6 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError("Choices Container is not assigned in DialogueManager!");
         if (choicePrefab == null)
             Debug.LogError("Choice Prefab is not assigned in DialogueManager!");
-        else
-            Debug.Log($"Choice Prefab is assigned: {choicePrefab.name}");
     }
 
     void Update()
@@ -74,7 +72,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentDialogue != null)
         {
-            Debug.Log("Manually testing ShowChoices");
             ShowChoices();
         }
         else
@@ -86,7 +83,6 @@ public class DialogueManager : MonoBehaviour
     [ContextMenu("Display Next Line")]
     public void DisplayNextLineManual()
     {
-        Debug.Log($"Manual call to DisplayNextLine. Lines remaining: {lines.Count}");
         DisplayNextLine();
     }
 
@@ -105,7 +101,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Starting dialogue with {dialogue.lines.Length} lines and {dialogue.choices.Length} choices");
+        // Starting dialogue
         
         currentDialogue = dialogue;
         showingChoices = false;
@@ -115,7 +111,6 @@ public class DialogueManager : MonoBehaviour
         if (choicesContainer != null)
         {
             choicesContainer.gameObject.SetActive(true);
-            Debug.Log($"Choices container is active: {choicesContainer.gameObject.activeInHierarchy}");
         }
 
         // Hide continue indicator initially
@@ -133,7 +128,6 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        Debug.Log($"DisplayNextLine called. Lines remaining: {lines.Count}");
         
         if (isTyping)
         {
@@ -158,7 +152,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLine currentLine = lines.Dequeue();
-        Debug.Log($"Displaying line: {currentLine.speaker} - {currentLine.sentence}");
         
         speakerNameText.text = currentLine.speaker;
         currentLineText = currentLine.sentence;
@@ -201,14 +194,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Current dialogue has {currentDialogue.choices.Length} choices");
-        
-        // Debug each choice
-        for (int i = 0; i < currentDialogue.choices.Length; i++)
-        {
-            var choice = currentDialogue.choices[i];
-            Debug.Log($"Choice {i + 1}: Text = '{choice.choiceText}', Has Conversation = {choice.conversation != null}");
-        }
+        // Show choices
         
         if (currentDialogue.choices.Length > 0)
         {
@@ -236,7 +222,7 @@ public class DialogueManager : MonoBehaviour
                     continue;
                 }
 
-                Debug.Log($"Generating choice: {choice.choiceText}");
+                // Generate choice button
 
                 // Create the button - use the proper instantiation method
                 GameObject buttonInstance = Instantiate(choicePrefab, choicesContainer);
@@ -281,7 +267,6 @@ public class DialogueManager : MonoBehaviour
                 int choiceIndex = i;
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(() => {
-                    Debug.Log($"Button {choiceIndex + 1} clicked: {choice.choiceText}");
                     OnChoiceSelected(choice);
                 });
 
@@ -304,7 +289,6 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No choices available, ending dialogue");
             EndDialogue();
         }
     }
@@ -318,7 +302,6 @@ public class DialogueManager : MonoBehaviour
 
     private void OnChoiceSelected(DialogueChoice choice)
     {
-        Debug.Log($"Choice selected: {choice.choiceText}");
         
         foreach (Transform child in choicesContainer)
         {

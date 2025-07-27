@@ -14,7 +14,7 @@ public class FragmentTrigger : MonoBehaviour
         {
             string fragmentText = string.Join("\n", fragmentLines);
             manager.ShowFragment(fragmentText, () => {
-                Debug.Log("Fragment added to journal!");
+                // Fragment added to journal
             });
         }
     }

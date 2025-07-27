@@ -29,7 +29,7 @@ public class PlayerSpawnManager : MonoBehaviour
         if (spawnPoint != null)
         {
             player.transform.position = spawnPoint.position;
-            Debug.Log($"Player spawned at: {spawnPoint.name} (Direction: {lastSceneDirection})");
+            // Player spawned successfully
             
             // Make sure player is active and enabled
             player.SetActive(true);
