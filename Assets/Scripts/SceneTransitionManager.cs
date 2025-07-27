@@ -21,7 +21,7 @@ public class SceneTransitionManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<SceneTransitionManager>();
+                instance = FindFirstObjectByType<SceneTransitionManager>();
                 if (instance == null)
                 {
                     GameObject go = new GameObject("SceneTransitionManager");
@@ -77,7 +77,8 @@ public class SceneTransitionManager : MonoBehaviour
         {
             // Create fade UI if not assigned
             GameObject canvasGO = new GameObject("FadeCanvas");
-            canvasGO.transform.SetParent(transform);
+            // Don't set parent initially - create as root object
+            // canvasGO.transform.SetParent(transform);
             
             Canvas canvas = canvasGO.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -100,7 +101,7 @@ public class SceneTransitionManager : MonoBehaviour
             rectTransform.offsetMin = Vector2.zero;
             rectTransform.offsetMax = Vector2.zero;
             
-            // Make sure the canvas persists
+            // Make sure the canvas persists - now it's a root object
             DontDestroyOnLoad(canvasGO);
             
             // Ensure the fade image starts invisible

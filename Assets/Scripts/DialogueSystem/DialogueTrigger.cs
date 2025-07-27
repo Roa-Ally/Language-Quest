@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         Debug.Log($"DialogueTrigger: TriggerDialogue called for {gameObject.name}");
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

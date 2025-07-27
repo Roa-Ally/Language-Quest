@@ -19,7 +19,7 @@ public class SimpleSceneTransition : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<SimpleSceneTransition>();
+                instance = FindFirstObjectByType<SimpleSceneTransition>();
                 if (instance == null)
                 {
                     GameObject go = new GameObject("SimpleSceneTransition");
@@ -48,7 +48,8 @@ public class SimpleSceneTransition : MonoBehaviour
     private void CreateFadeUI()
     {
         GameObject canvasGO = new GameObject("FadeCanvas");
-        canvasGO.transform.SetParent(transform);
+        // Don't set parent initially - create as root object
+        // canvasGO.transform.SetParent(transform);
         
         Canvas canvas = canvasGO.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -71,6 +72,7 @@ public class SimpleSceneTransition : MonoBehaviour
         rectTransform.offsetMin = Vector2.zero;
         rectTransform.offsetMax = Vector2.zero;
         
+        // Now it's a root object, so DontDestroyOnLoad will work
         DontDestroyOnLoad(canvasGO);
     }
     

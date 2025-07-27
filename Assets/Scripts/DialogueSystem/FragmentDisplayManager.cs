@@ -26,7 +26,7 @@ public class FragmentDisplayManager : MonoBehaviour
     public void ShowFragment(string fragment, Action onAdd = null)
     {
         FragmentActive = true;
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.StopMovement();
         if (fragmentPanel != null)
@@ -49,7 +49,7 @@ public class FragmentDisplayManager : MonoBehaviour
             onAddToJournal.Invoke();
         
         // Resume player movement when fragment is closed
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.ResumeMovement();
     }

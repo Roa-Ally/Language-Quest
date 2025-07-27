@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
         DialogueActive = true;
         
         // Stop the player immediately when dialogue starts
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.StopMovement();
         
@@ -266,7 +266,7 @@ public class DialogueManager : MonoBehaviour
                 choiceText.text = choice.choiceText;
                 choiceText.color = Color.white;
                 choiceText.fontSize = 20;
-                choiceText.enableWordWrapping = true;
+                choiceText.textWrappingMode = TextWrappingModes.Normal;
                 choiceText.overflowMode = TextOverflowModes.Ellipsis;
                 
                 // Set up the button behavior
@@ -341,7 +341,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
         
         // Resume player movement when dialogue ends
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.ResumeMovement();
     }

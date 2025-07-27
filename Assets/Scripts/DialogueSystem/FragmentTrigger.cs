@@ -9,7 +9,7 @@ public class FragmentTrigger : MonoBehaviour
 
     public void TriggerFragment()
     {
-        var manager = FindObjectOfType<FragmentDisplayManager>();
+        var manager = FindFirstObjectByType<FragmentDisplayManager>();
         if (manager != null && fragmentLines.Count > 0)
         {
             string fragmentText = string.Join("\n", fragmentLines);

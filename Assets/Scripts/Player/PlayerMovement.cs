@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isFacingRight = false;
     private bool _isGrounded = false;
 
-    private bool isCurrentlyMoving = false;
+    // private bool isCurrentlyMoving = false; // Unused field - removed to fix warning
     private bool _movementEnabled = true;
     private Rigidbody2D _rb;
 
@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpPower);
             _isGrounded = false;
-            _animator.SetBool("isJumping", !_isGrounded);
         }
     }
 
@@ -44,8 +43,13 @@ public class PlayerMovement : MonoBehaviour
         if (!_movementEnabled) return;
         
         _rb.linearVelocity = new Vector2(_horizontalInput * _moveSpeed, _rb.linearVelocity.y);
-        _animator.SetFloat("xVelocity", Math.Abs(_rb.linearVelocity.x));
-        _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
+        
+        // Only set animation parameters if they exist
+        if (_animator != null)
+        {
+            _animator.SetFloat("xVelocity", Math.Abs(_rb.linearVelocity.x));
+            _animator.SetFloat("yVelocity", _rb.linearVelocity.y);
+        }
     }
 
     private void FlipSprite()
@@ -62,14 +66,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _isGrounded = true;
-        _animator.SetBool("isJumping", !_isGrounded);
     }
 
     public void StopMovement()
     {
         _movementEnabled = false;
         _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
-        _animator.SetFloat("xVelocity", 0);
+        
+        // Only set animation parameters if they exist
+        if (_animator != null)
+        {
+            _animator.SetFloat("xVelocity", 0);
+        }
     }
 
     public void ResumeMovement()

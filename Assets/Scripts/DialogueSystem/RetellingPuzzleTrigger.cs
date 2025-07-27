@@ -16,7 +16,7 @@ public class RetellingPuzzleTrigger : MonoBehaviour
 
     public void TriggerPuzzle()
     {
-        var manager = FindObjectOfType<RetellingPuzzleManager>();
+        var manager = FindFirstObjectByType<RetellingPuzzleManager>();
         if (manager != null)
         {
             // Set the correct order first (unshuffled)

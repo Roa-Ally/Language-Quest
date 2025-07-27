@@ -40,7 +40,7 @@ public class RetellingPuzzleManager : MonoBehaviour
         RetellingActive = true;
         
         // Stop the player immediately when puzzle starts
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.StopMovement();
         
@@ -219,7 +219,7 @@ public class RetellingPuzzleManager : MonoBehaviour
         RetellingActive = false;
         
         // Resume player movement when puzzle ends
-        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.ResumeMovement();
     }
