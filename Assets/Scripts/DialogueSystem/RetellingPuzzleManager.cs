@@ -69,7 +69,6 @@ public class RetellingPuzzleManager : MonoBehaviour
     {
         correctOrder.Clear();
         correctOrder.AddRange(phrases);
-        Debug.Log($"Set correct order with {correctOrder.Count} phrases");
     }
 
     private void ClearPhrases()
@@ -84,7 +83,6 @@ public class RetellingPuzzleManager : MonoBehaviour
         foreach (var phrase in phrases)
         {
             GameObject go = Instantiate(phrasePrefab, phraseContainer);
-            Debug.Log($"Created phrase object: {go.name}");
             
             // Try multiple ways to find the text component
             var text = go.GetComponentInChildren<TextMeshProUGUI>();
@@ -94,7 +92,6 @@ public class RetellingPuzzleManager : MonoBehaviour
             if (text != null)
             {
                 text.text = phrase;
-                Debug.Log($"Set text for phrase: {phrase}");
             }
             else
             {
@@ -136,7 +133,6 @@ public class RetellingPuzzleManager : MonoBehaviour
 
     public void ShufflePhrases()
     {
-        Debug.Log("Shuffle button clicked!");
         List<string> phrases = new List<string>();
         foreach (var go in currentPhrases)
         {
@@ -167,7 +163,6 @@ public class RetellingPuzzleManager : MonoBehaviour
 
     public void CheckSolution()
     {
-        Debug.Log("Submit button clicked!");
         if (correctOrder.Count == 0)
         {
             ShowFeedback("No correct order set! Please set the correctOrder list in the inspector.", false);
@@ -181,7 +176,6 @@ public class RetellingPuzzleManager : MonoBehaviour
             if (text == null || text.text != correctOrder[i])
             {
                 correct = false;
-                Debug.Log($"Incorrect at position {i}: Expected '{correctOrder[i]}', got '{text?.text}'");
                 break;
             }
         }
@@ -203,10 +197,9 @@ public class RetellingPuzzleManager : MonoBehaviour
         if (feedbackText != null)
         {
             feedbackText.text = message;
-            feedbackText.color = isSuccess ? Color.green : Color.red;
+            feedbackText.color = isSuccess ? new Color(0.1f, 0.6f, 0.1f) : Color.red; // Dark green instead of lime green
             feedbackText.gameObject.SetActive(true);
         }
-        Debug.Log(message);
     }
 
     private System.Collections.IEnumerator ClosePanelAfterDelay(float delay)
@@ -266,9 +259,6 @@ public class PhraseDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         
         // Calculate the new position
         Vector2 newPosition = rectTransform.anchoredPosition + eventData.delta / canvas.scaleFactor;
-        
-        // Debug the movement
-        Debug.Log($"Dragging {gameObject.name}: Current pos: {rectTransform.anchoredPosition}, Delta: {eventData.delta}, New pos: {newPosition}");
         
         // Apply the new position
         rectTransform.anchoredPosition = newPosition;
