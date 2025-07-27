@@ -5,6 +5,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] private SpriteSwap[] spriteSwappers;
     [SerializeField] private float delayBetweenSwaps = 0.5f;
+    [SerializeField] private float initialDelay = 3f;
     [SerializeField] private bool triggerSwap = false;
 
     [SerializeField] private bool hasSwapped = false;
@@ -20,6 +21,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private IEnumerator SwapAll()
     {
+        yield return new WaitForSeconds(initialDelay);
+
         foreach (var swapper in spriteSwappers)
         {
             swapper.Swap();
