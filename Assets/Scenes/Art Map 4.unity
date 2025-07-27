@@ -2815,8 +2815,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1904799703
-  m_SortingLayer: 4
+  m_SortingLayerID: -344428533
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -19052585886139751, guid: 6becb8bea7e7f18429362f90e75b2b16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7549,6 +7549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteSwappers:
+  - {fileID: 1585345600}
+  - {fileID: 2050755873}
+  - {fileID: 2009487228}
+  - {fileID: 600260029}
+  - {fileID: 747479551}
   - {fileID: 1262400546}
   - {fileID: 1484776610}
   - {fileID: 1459860732}
@@ -7616,6 +7621,7 @@ MonoBehaviour:
   - {fileID: 954582678}
   - {fileID: 1447091683}
   delayBetweenSwaps: 0.3
+  initialDelay: 1
   triggerSwap: 1
   hasSwapped: 0
 --- !u!4 &888108495
