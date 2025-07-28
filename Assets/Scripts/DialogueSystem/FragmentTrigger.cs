@@ -6,6 +6,8 @@ public class FragmentTrigger : MonoBehaviour
     [Header("Fragment Lines")]
     [TextArea(2, 5)]
     public List<string> fragmentLines = new List<string>();
+    [TextArea(2, 5)]
+    public List<string> englishFragmentLines = new List<string>();
 
     [Header("Visual Settings")]
     [SerializeField] private float spriteScale = 3.0f;
@@ -32,6 +34,21 @@ public class FragmentTrigger : MonoBehaviour
             manager.ShowFragment(fragmentText, () => {
                 // Fragment added to journal
             });
+            
+            // Set English text if available
+            if (englishFragmentLines != null && englishFragmentLines.Count > 0)
+            {
+                string englishFragmentText = string.Join("\n", englishFragmentLines);
+                manager.SetEnglishFragmentText(englishFragmentText);
+            }
+            
+            // Hide the sprite if enabled
+            if (hideSpriteWhenTriggered && spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+            
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 

@@ -40,8 +40,6 @@ public class ThoughtBubbleTrigger : MonoBehaviour
         {
             manager.StartThoughtSequence(thoughts);
             hasTriggered = true;
-            
-            // Disable the trigger if it should only trigger once
             if (triggerOnce)
             {
                 GetComponent<Collider2D>().enabled = false;
