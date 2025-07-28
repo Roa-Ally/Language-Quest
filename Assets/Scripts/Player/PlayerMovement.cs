@@ -22,20 +22,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
     }
+
     private void Update()
     {
         if (!_movementEnabled) return;
         
         _horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
-
-        if (Input.GetButtonDown("Jump") && _isGrounded)
-        {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpPower);
-            _isGrounded = false;
-        }
     }
 
     private void FixedUpdate()
@@ -77,10 +71,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        _isGrounded = true;
-    }
+    
 
     public void StopMovement()
     {
