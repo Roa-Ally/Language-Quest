@@ -407,7 +407,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"I did it!"'
+  m_text: "(She stands before the tree. The forest is silent. She closes her eyes\u2026
+    and begins.)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89d8d68b6e59c4ff196d756514d81d86, type: 2}
   m_sharedMaterial: {fileID: 557705853841716614, guid: 89d8d68b6e59c4ff196d756514d81d86, type: 2}
@@ -538,6 +539,30 @@ MonoBehaviour:
   fadeInDuration: 1
   fadeOutDuration: 1
   introMessages:
+  - "\"Hace mucho tiempo, en un bosque antiguo y lleno de vida, viv\xEDa un esp\xEDritu
+    llamado Chullachaqui.\" Long ago, in an ancient, living forest, there lived a
+    spirit named Chullachaqui."
+  - "\"No era un hombre, ni un animal, sino el guardi\xE1n del equilibrio entre la
+    naturaleza y los humanos.\" He was not a man, nor an animal, but the guardian
+    of balance between nature and humans."
+  - "\"Ten\xEDa un pie humano y un pie torcido, como el de un animal, para que nadie
+    lo confundiera con otro.\" He had one human foot, and one twisted \u2014 so no
+    one would mistake him for someone else."
+  - "\"Cuando el bosque era respetado, \xE9l ayudaba a los viajeros a encontrar su
+    camino.\" When the forest was respected, he helped travelers find their path."
+  - "\"Pero cuando las personas olvidaron el idioma del bosque y dejaron de escuchar...\"
+    But when people forgot the forest\u2019s language and stopped listening\u2026"
+  - "\"\xE9l se volvi\xF3 un eco. Un recuerdo.\" He became an echo. A memory."
+  - "\"A veces, se aparec\xEDa como un amigo... pero su pie siempre dec\xEDa la verdad.\"
+    Sometimes, he appeared as a friend\u2026 but his foot always told the truth."
+  - "\"No era malvado. Solo estaba perdido, como las palabras que la gente dej\xF3
+    de decir.\" He was not evil. Only lost \u2014 like the words people stopped saying."
+  - '"Y solo quien recuerda su historia..." And only one who remembers his story...'
+  - '"Y habla con respeto..." And speaks with respect...'
+  - "\"Puede devolverle su forma\u2026\" Can return his form\u2026"
+  - '"Y su hogar." And his home.'
+  - 
+  - '"I did it!"'
   - As the final word leaves her lips,
   - 
   - The roots pulse.
@@ -549,6 +574,7 @@ MonoBehaviour:
   - The world tree is alive.
   - 
   - The End
+  - 
   baseMessageDisplayTime: 4
   shortMessageDisplayTime: 2.5
   characterTimeMultiplier: 0.02
