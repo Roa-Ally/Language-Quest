@@ -7582,8 +7582,8 @@ Transform:
   m_GameObject: {fileID: 739058884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.7, y: -10.0691, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.2053, z: 1}
+  m_LocalPosition: {x: 285.7, y: -12.7733, z: 0}
+  m_LocalScale: {x: 1.21, y: 1.2907557, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8066,8 +8066,8 @@ Transform:
   m_GameObject: {fileID: 801346921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -10.0691, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.2053, z: 1}
+  m_LocalPosition: {x: 15, y: -12.5029, z: 0}
+  m_LocalScale: {x: 1.21, y: 1.2821981, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -13247,8 +13247,8 @@ Transform:
   m_GameObject: {fileID: 1526892130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -120.4546, y: -10.0691, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.2053, z: 1}
+  m_LocalPosition: {x: -120.4546, y: -11.6916, z: 0}
+  m_LocalScale: {x: 1.21, y: 1.2565253, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -15543,8 +15543,8 @@ Transform:
   m_GameObject: {fileID: 1836799253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 419.7, y: -10.0691, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.2053, z: 1}
+  m_LocalPosition: {x: 419.7, y: -12.5029, z: 0}
+  m_LocalScale: {x: 1.21, y: 1.2821981, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -15757,6 +15757,7 @@ MonoBehaviour:
   - He became an echo, a memory.
   - He appeared as a long-lost friend.
   - Only those who remember can return his home.
+  triggerAct4Part2Events: 0
 --- !u!61 &1877812915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17713,8 +17714,8 @@ Transform:
   m_GameObject: {fileID: 2038063525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.1, y: -10.0691, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.2053, z: 1}
+  m_LocalPosition: {x: 150.1, y: -13.0438, z: 0}
+  m_LocalScale: {x: 1.21, y: 1.2993133, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
