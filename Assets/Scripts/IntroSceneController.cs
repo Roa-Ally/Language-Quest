@@ -18,7 +18,7 @@ public class IntroSceneController : MonoBehaviour
     
     [Header("Intro Content")]
     [SerializeField] private string[] introMessages = {
-        "he never meant to find it.",
+        "She never meant to find it.",
         "",
         "Tucked beneath loose floorboards in her late grandmother's cabin — the one nestled on the edge of a forgotten woodland — lay a weathered book. Its pages were brittle, its ink faded, but its voice… unmistakably alive.",
         "",
@@ -40,8 +40,13 @@ public class IntroSceneController : MonoBehaviour
     
     [Header("Skip Options")]
     [SerializeField] private bool allowSkip = true;
-    [SerializeField] private KeyCode skipKey = KeyCode.Space;
-    [SerializeField] private KeyCode skipKeyAlt = KeyCode.Return;
+    [SerializeField] private KeyCode skipEntireIntroKey = KeyCode.Space; // Skip entire intro
+    [SerializeField] private KeyCode skipToNextKey = KeyCode.Return; // Skip to next text line
+    [SerializeField] private KeyCode skipToNextKeyAlt = KeyCode.Mouse0; // Alternative skip to next (mouse click)
+    
+    private int currentMessageIndex = 0;
+    private Coroutine currentMessageCoroutine;
+    private bool isDisplayingMessage = false;
     
     private void Start()
     {
@@ -57,7 +62,7 @@ public class IntroSceneController : MonoBehaviour
         // Show skip instruction
         if (skipInstructionText != null)
         {
-            skipInstructionText.text = $"Press {skipKey} or {skipKeyAlt} to skip";
+            skipInstructionText.text = $"Press {skipEntireIntroKey} to skip intro, {skipToNextKey} or click to continue";
             skipInstructionText.alpha = 0f; // Start hidden
         }
         
@@ -67,11 +72,26 @@ public class IntroSceneController : MonoBehaviour
     
     private void Update()
     {
-        // Allow skipping the intro
-        if (allowSkip && (Input.GetKeyDown(skipKey) || Input.GetKeyDown(skipKeyAlt)))
+        if (!allowSkip) return;
+        
+        // Skip entire intro with Space
+        if (Input.GetKeyDown(skipEntireIntroKey))
         {
             StopAllCoroutines();
             StartCoroutine(TransitionToNextScene());
+            return;
+        }
+        
+        // Skip to next text line with Enter or Click
+        if (Input.GetKeyDown(skipToNextKey) || Input.GetKeyDown(skipToNextKeyAlt))
+        {
+            if (isDisplayingMessage && currentMessageCoroutine != null)
+            {
+                // Stop current message and show next
+                StopCoroutine(currentMessageCoroutine);
+                isDisplayingMessage = false;
+                DisplayNextMessage();
+            }
         }
     }
     
@@ -100,40 +120,86 @@ public class IntroSceneController : MonoBehaviour
     
     private IEnumerator DisplayIntroMessages()
     {
-        for (int i = 0; i < introMessages.Length; i++)
+        currentMessageIndex = 0;
+        
+        while (currentMessageIndex < introMessages.Length)
         {
-            string message = introMessages[i];
+            string message = introMessages[currentMessageIndex];
             
-            // Skip empty messages but add a small pause
-            if (string.IsNullOrEmpty(message.Trim()))
+            if (!string.IsNullOrEmpty(message))
             {
-                yield return new WaitForSeconds(0.8f);
-                continue;
-            }
-            
-            // Set the text
-            introText.text = message;
-            
-            // Fade in the text
-            yield return StartCoroutine(FadeTextIn());
-            
-            // Show skip instruction after first text appears
-            if (i == 0 && skipInstructionText != null)
-            {
-                yield return StartCoroutine(FadeSkipInstructionIn());
-            }
-            
-            // Calculate display time based on message length
-            float displayTime = CalculateDisplayTime(message);
-            
-            // Wait for display time
-            yield return new WaitForSeconds(displayTime);
-            
-            // Fade out the text (except for the last message)
-            if (i < introMessages.Length - 1)
-            {
+                // Fade out current text
                 yield return StartCoroutine(FadeTextOut());
+                
+                // Set new text
+                introText.text = message;
+                
+                // Fade in new text
+                yield return StartCoroutine(FadeTextIn());
+                
+                // Show skip instruction after first text appears
+                if (currentMessageIndex == 0 && skipInstructionText != null)
+                {
+                    yield return StartCoroutine(FadeSkipInstructionIn());
+                }
+                
+                // Calculate display time and wait
+                float displayTime = CalculateDisplayTime(message);
+                isDisplayingMessage = true;
+                currentMessageCoroutine = StartCoroutine(WaitForMessageDisplay(displayTime));
+                yield return currentMessageCoroutine;
+                isDisplayingMessage = false;
             }
+            
+            currentMessageIndex++;
+        }
+    }
+    
+    private IEnumerator WaitForMessageDisplay(float displayTime)
+    {
+        yield return new WaitForSeconds(displayTime);
+    }
+    
+    private void DisplayNextMessage()
+    {
+        // Stop current message display
+        if (currentMessageCoroutine != null)
+        {
+            StopCoroutine(currentMessageCoroutine);
+            currentMessageCoroutine = null;
+        }
+        isDisplayingMessage = false;
+        
+        // Move to next message
+        currentMessageIndex++;
+        
+        // If we have more messages, display the next one
+        if (currentMessageIndex < introMessages.Length)
+        {
+            string message = introMessages[currentMessageIndex];
+            if (!string.IsNullOrEmpty(message))
+            {
+                // Set the text immediately
+                introText.text = message;
+                
+                // Start fade in
+                StartCoroutine(FadeTextIn());
+                
+                // Start new display timer
+                float displayTime = CalculateDisplayTime(message);
+                isDisplayingMessage = true;
+                currentMessageCoroutine = StartCoroutine(WaitForMessageDisplay(displayTime));
+            }
+            else
+            {
+                // If it's empty, try the next one
+                DisplayNextMessage();
+            }
+        }
+        else
+        {
+            // We've reached the end, transition to next scene
+            StartCoroutine(TransitionToNextScene());
         }
     }
     
@@ -185,12 +251,12 @@ public class IntroSceneController : MonoBehaviour
         if (introText == null) yield break;
         
         float elapsedTime = 0f;
-        float duration = 1f;
+        float fadeTime = 0.8f;
         
-        while (elapsedTime < duration)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / duration);
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeTime);
             introText.alpha = alpha;
             yield return null;
         }
@@ -203,12 +269,12 @@ public class IntroSceneController : MonoBehaviour
         if (introText == null) yield break;
         
         float elapsedTime = 0f;
-        float duration = 1f;
+        float fadeTime = 0.8f;
         
-        while (elapsedTime < duration)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
             introText.alpha = alpha;
             yield return null;
         }
@@ -221,12 +287,12 @@ public class IntroSceneController : MonoBehaviour
         if (skipInstructionText == null) yield break;
         
         float elapsedTime = 0f;
-        float duration = 1f;
+        float fadeTime = 1f;
         
-        while (elapsedTime < duration)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(0f, 0.7f, elapsedTime / duration); // Keep it slightly transparent
+            float alpha = Mathf.Lerp(0f, 0.7f, elapsedTime / fadeTime);
             skipInstructionText.alpha = alpha;
             yield return null;
         }
@@ -242,11 +308,10 @@ public class IntroSceneController : MonoBehaviour
             yield return StartCoroutine(FadeOut());
         }
         
-        // Load the next scene
+        // Load next scene
         SceneManager.LoadScene(nextSceneName);
     }
     
-    // Public method to manually trigger scene transition (for UI buttons)
     public void SkipIntro()
     {
         StopAllCoroutines();
