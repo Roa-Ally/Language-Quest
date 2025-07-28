@@ -34,6 +34,7 @@ public class IntroSceneController : MonoBehaviour
         "",
         "Because when we forget the stories that bind us to the earth…\neven the roots begin to die."
     };
+    
     [SerializeField] private float baseMessageDisplayTime = 4f; // Base time for messages
     [SerializeField] private float shortMessageDisplayTime = 2.5f; // For shorter lines
     [SerializeField] private float characterTimeMultiplier = 0.02f; // Additional time per character

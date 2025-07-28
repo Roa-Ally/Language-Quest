@@ -9,7 +9,7 @@ public class ThoughtBubbleManager : MonoBehaviour
     [Header("UI Components")]
     public GameObject thoughtBox;
     public TextMeshProUGUI thoughtText;
-    public TextMeshProUGUI continueIndicator;
+    public TextMeshProUGUI thoughtContinueIndicator;
 
     private Queue<string> thoughts;
     private Coroutine typewriterCoroutine;
@@ -31,14 +31,20 @@ public class ThoughtBubbleManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            // Check if we clicked on a UI element (like the language button)
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            {
+                return; // Don't advance if clicking on UI
+            }
+            
             if (isTyping)
             {
                 if (typewriterCoroutine != null)
                     StopCoroutine(typewriterCoroutine);
                 thoughtText.text = currentThoughtText;
                 isTyping = false;
-                if (continueIndicator != null)
-                    continueIndicator.gameObject.SetActive(true);
+                if (thoughtContinueIndicator != null)
+                    thoughtContinueIndicator.gameObject.SetActive(true);
             }
             else
             {
@@ -65,10 +71,11 @@ public class ThoughtBubbleManager : MonoBehaviour
         thoughtBox.SetActive(true);
 
         // Hide continue indicator initially
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(false);
+        if (thoughtContinueIndicator != null)
+            thoughtContinueIndicator.gameObject.SetActive(false);
 
         thoughts.Clear();
+        
         foreach (string thought in thoughtList)
         {
             thoughts.Enqueue(thought);
@@ -86,8 +93,8 @@ public class ThoughtBubbleManager : MonoBehaviour
                 StopCoroutine(typewriterCoroutine);
             thoughtText.text = currentThoughtText;
             isTyping = false;
-            if (continueIndicator != null)
-                continueIndicator.gameObject.SetActive(true);
+            if (thoughtContinueIndicator != null)
+                thoughtContinueIndicator.gameObject.SetActive(true);
             return;
         }
         
@@ -98,29 +105,27 @@ public class ThoughtBubbleManager : MonoBehaviour
         }
 
         string thought = thoughts.Dequeue();
-        currentThoughtText = thought;
         
+        currentThoughtText = thought;
         if (typewriterCoroutine != null)
             StopCoroutine(typewriterCoroutine);
         typewriterCoroutine = StartCoroutine(TypeThought(thought));
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(false);
+        if (thoughtContinueIndicator != null)
+            thoughtContinueIndicator.gameObject.SetActive(false);
     }
 
     private IEnumerator TypeThought(string text)
     {
         isTyping = true;
         thoughtText.text = "";
-        
         foreach (char c in text)
         {
             thoughtText.text += c;
             yield return new WaitForSeconds(0.02f);
         }
-        
         isTyping = false;
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(true);
+        if (thoughtContinueIndicator != null)
+            thoughtContinueIndicator.gameObject.SetActive(true);
     }
 
     private void EndThoughtSequence()

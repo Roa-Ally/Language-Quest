@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Transform choicesContainer;
     public GameObject choicePrefab;
-    public TextMeshProUGUI continueIndicator;
+    public TextMeshProUGUI dialogueContinueIndicator;
 
     [Header("Debug")]
     public bool showDebugInfo = true;
@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typewriterCoroutine;
     private bool isTyping = false;
     private string currentLineText = "";
+    private bool shouldShowContinueIndicator = true;
 
     public static bool DialogueActive = false;
 
@@ -56,11 +57,14 @@ public class DialogueManager : MonoBehaviour
                         StopCoroutine(typewriterCoroutine);
                     dialogueText.text = currentLineText;
                     isTyping = false;
-                    if (continueIndicator != null)
-                        continueIndicator.gameObject.SetActive(true);
+                    if (dialogueContinueIndicator != null)
+                        dialogueContinueIndicator.gameObject.SetActive(true);
                 }
                 else
                 {
+                    // Hide continue indicator when advancing to next line
+                    if (dialogueContinueIndicator != null)
+                        dialogueContinueIndicator.gameObject.SetActive(false);
                     DisplayNextLine();
                 }
             }
@@ -101,23 +105,10 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // Starting dialogue
-        
         currentDialogue = dialogue;
-        showingChoices = false;
+        lines.Clear();
         dialogueBox.SetActive(true);
 
-        // Make sure the choices container is visible
-        if (choicesContainer != null)
-        {
-            choicesContainer.gameObject.SetActive(true);
-        }
-
-        // Hide continue indicator initially
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(false);
-
-        lines.Clear();
         foreach (DialogueLine line in dialogue.lines)
         {
             lines.Enqueue(line);
@@ -128,38 +119,45 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
-        
-        if (isTyping)
-        {
-            // If still typing, finish instantly
-            if (typewriterCoroutine != null)
-                StopCoroutine(typewriterCoroutine);
-            dialogueText.text = currentLineText;
-            isTyping = false;
-            if (continueIndicator != null)
-                continueIndicator.gameObject.SetActive(true);
-            return;
-        }
-        
         if (lines.Count == 0)
         {
-            Debug.Log("No more lines, showing choices");
-            showingChoices = true;
-            if (continueIndicator != null)
-                continueIndicator.gameObject.SetActive(false);
-            ShowChoices();
-            return;
+            if (currentDialogue.choices.Length > 0)
+            {
+                ShowChoices();
+                return;
+            }
+            else
+            {
+                EndDialogue();
+                return;
+            }
         }
 
         DialogueLine currentLine = lines.Dequeue();
         
         speakerNameText.text = currentLine.speaker;
-        currentLineText = currentLine.sentence;
+        
+        // Use English text if language is English, otherwise use Spanish
+        string displayText = SimpleLanguageButton.isEnglish ? currentLine.englishText : currentLine.sentence;
+        
+        // Fallback to Spanish if English is empty
+        if (string.IsNullOrEmpty(displayText))
+        {
+            displayText = currentLine.sentence;
+        }
+        
+        currentLineText = displayText;
+        
+        // Stop the old coroutine and set flag to prevent it from showing continue indicator
         if (typewriterCoroutine != null)
+        {
             StopCoroutine(typewriterCoroutine);
-        typewriterCoroutine = StartCoroutine(TypeText(currentLine.sentence));
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(false);
+            shouldShowContinueIndicator = false;
+        }
+        
+        typewriterCoroutine = StartCoroutine(TypeText(displayText));
+        if (dialogueContinueIndicator != null)
+            dialogueContinueIndicator.gameObject.SetActive(false);
 
         if (currentLine.portrait != null)
         {
@@ -176,14 +174,15 @@ public class DialogueManager : MonoBehaviour
     {
         isTyping = true;
         dialogueText.text = "";
+        shouldShowContinueIndicator = true;
         foreach (char c in text)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(0.02f);
         }
         isTyping = false;
-        if (continueIndicator != null)
-            continueIndicator.gameObject.SetActive(true);
+        if (dialogueContinueIndicator != null && shouldShowContinueIndicator)
+            dialogueContinueIndicator.gameObject.SetActive(true);
     }
 
     private void ShowChoices()
@@ -194,7 +193,11 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // Show choices
+        showingChoices = true;
+        
+        // Hide continue indicator when showing choices
+        if (dialogueContinueIndicator != null)
+            dialogueContinueIndicator.gameObject.SetActive(false);
         
         if (currentDialogue.choices.Length > 0)
         {
@@ -203,8 +206,6 @@ public class DialogueManager : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-
-
 
             // Create new choice buttons
             for (int i = 0; i < currentDialogue.choices.Length; i++)
@@ -222,8 +223,6 @@ public class DialogueManager : MonoBehaviour
                     continue;
                 }
 
-                // Generate choice button
-
                 // Create the button - use the proper instantiation method
                 GameObject buttonInstance = Instantiate(choicePrefab, choicesContainer);
                 if (buttonInstance == null)
@@ -238,8 +237,6 @@ public class DialogueManager : MonoBehaviour
                 buttonInstance.SetActive(true);
                 buttonInstance.name = $"ChoiceButton_{i + 1}";
                 
-
-                
                 // Get the TMP_Text component (this is the key fix)
                 TMP_Text choiceText = buttonInstance.GetComponentInChildren<TMP_Text>();
                 if (choiceText == null)
@@ -249,7 +246,15 @@ public class DialogueManager : MonoBehaviour
                 }
 
                 // Set the text
-                choiceText.text = choice.choiceText;
+                string choiceDisplayText = SimpleLanguageButton.isEnglish ? choice.englishChoiceText : choice.choiceText;
+                
+                // Fallback to Spanish if English is empty
+                if (string.IsNullOrEmpty(choiceDisplayText))
+                {
+                    choiceDisplayText = choice.choiceText;
+                }
+                
+                choiceText.text = choiceDisplayText;
                 choiceText.color = Color.white;
                 choiceText.fontSize = 20;
                 choiceText.textWrappingMode = TextWrappingModes.Normal;
@@ -302,6 +307,7 @@ public class DialogueManager : MonoBehaviour
 
     private void OnChoiceSelected(DialogueChoice choice)
     {
+        showingChoices = false;
         
         foreach (Transform child in choicesContainer)
         {
@@ -327,5 +333,23 @@ public class DialogueManager : MonoBehaviour
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
             player.ResumeMovement();
+    }
+
+    public void RefreshCurrentDialogue()
+    {
+        if (currentDialogue != null && DialogueActive)
+        {
+            // Store current state
+            bool wasShowingChoices = showingChoices;
+            
+            // Restart the current dialogue with new language
+            StartDialogue(currentDialogue);
+            
+            // If we were showing choices, show them again
+            if (wasShowingChoices)
+            {
+                ShowChoices();
+            }
+        }
     }
 } 

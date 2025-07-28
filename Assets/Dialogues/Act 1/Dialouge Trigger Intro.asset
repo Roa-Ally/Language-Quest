@@ -15,14 +15,18 @@ MonoBehaviour:
   lines:
   - speaker: Espiritu Del Bosque
     sentence: "El bosque est\xE1 en silencio... \xBFBuscas algo, viajero?"
+    englishText: The forest is silent... Are you looking for something, traveler?
     portrait: {fileID: 21300000, guid: 0a2176d15880b497f83c266c52f75e98, type: 3}
   choices:
   - choiceText: Estoy buscando tu historia.
+    englishChoiceText: 'I''m looking for your story. '
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: No entiendo este lugar...
+    englishChoiceText: 'I don''t understand this place... '
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: '[Usar palabra: ''bosque'']'
+    englishChoiceText: '[Use word: ''forest'']'
     conversation: {fileID: 0}
     specialWord: bosque

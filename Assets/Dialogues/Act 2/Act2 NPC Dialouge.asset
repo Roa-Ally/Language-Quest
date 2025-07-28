@@ -15,14 +15,18 @@ MonoBehaviour:
   lines:
   - speaker: Sabio del Bosque
     sentence: " Aparece como alguien que conoces... pero su pie est\xE1 torcido."
+    englishText: "He appears as someone you know\u2026 but his foot is twisted."
     portrait: {fileID: 21300000, guid: 6c752103f06144fe59fa2ca99fb5d17a, type: 3}
   choices:
   - choiceText: "\xBFC\xF3mo puedo reconocerlo?"
+    englishChoiceText: 'How can I recognize him?  '
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: "\xBFPor qu\xE9 ayuda a los viajeros?"
+    englishChoiceText: 'Why does he help travelers?  '
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: "\xBFQu\xE9 pasa si no respeto el bosque?"
+    englishChoiceText: "What happens if I don\u2019t respect the forest? "
     conversation: {fileID: 0}
     specialWord: 
