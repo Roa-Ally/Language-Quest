@@ -14,6 +14,8 @@ public class FragmentDisplayManager : MonoBehaviour
     public TextMeshProUGUI buttonText;
 
     private Action onAddToJournal;
+    private string currentFragmentText = "";
+    private string currentEnglishFragmentText = "";
 
     void Start()
     {
@@ -31,13 +33,40 @@ public class FragmentDisplayManager : MonoBehaviour
             player.StopMovement();
         if (fragmentPanel != null)
             fragmentPanel.SetActive(true);
-        if (titleText != null)
-            titleText.text = "Story Fragment Unlocked!";
-        if (fragmentText != null)
-            fragmentText.text = fragment;
-        if (buttonText != null)
-            buttonText.text = "Add to Journal";
+        
+        // Store both texts
+        currentFragmentText = fragment;
+        currentEnglishFragmentText = fragment; // This will be set separately
+        
+        // Show/hide text components based on language
+        UpdateFragmentText();
+        
         onAddToJournal = onAdd;
+    }
+    
+    public void SetEnglishFragmentText(string englishFragment)
+    {
+        currentEnglishFragmentText = englishFragment;
+        UpdateFragmentText();
+    }
+    
+    public void UpdateFragmentText()
+    {
+        if (fragmentText != null)
+        {
+            if (SimpleLanguageButton.isEnglish)
+            {
+                fragmentText.text = currentEnglishFragmentText;
+            }
+            else
+            {
+                fragmentText.text = currentFragmentText;
+            }
+        }
+        else
+        {
+            Debug.LogError("fragmentText component is null! Assign it in the inspector.");
+        }
     }
 
     private void OnAddToJournalClicked()
@@ -45,6 +74,7 @@ public class FragmentDisplayManager : MonoBehaviour
         if (fragmentPanel != null)
             fragmentPanel.SetActive(false);
         FragmentActive = false;
+        
         if (onAddToJournal != null)
             onAddToJournal.Invoke();
         

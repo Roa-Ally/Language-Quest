@@ -15,14 +15,18 @@ MonoBehaviour:
   lines:
   - speaker: Chullachaqui
     sentence: "\xBFRecuerdas las palabras del bosque?\n"
+    englishText: Do you remember the words of the forest?
     portrait: {fileID: 21300000, guid: e90baa3c25038475b82ce9a3d82f9384, type: 3}
   choices:
   - choiceText: "S\xED, recuerdo \"bosque\" y \"esp\xEDritu\"."
+    englishChoiceText: Yes, I remember "forest" and "spirit."
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: "\xBFQu\xE9 palabras debo recordar? "
+    englishChoiceText: What words must I remember?
     conversation: {fileID: 0}
     specialWord: 
   - choiceText: '[Use word: ''escuchar'']'
+    englishChoiceText: '[Use word: ''listen'']'
     conversation: {fileID: 0}
     specialWord: escuchar

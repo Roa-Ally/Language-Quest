@@ -21,6 +21,8 @@ public class RetellingPuzzleManager : MonoBehaviour
     [Header("Puzzle Data")]
     [TextArea(2, 5)]
     public List<string> correctOrder = new List<string>();
+    [TextArea(2, 5)]
+    public List<string> englishCorrectOrder = new List<string>();
     private List<GameObject> currentPhrases = new List<GameObject>();
 
     public static bool RetellingActive = false;
@@ -35,7 +37,7 @@ public class RetellingPuzzleManager : MonoBehaviour
             submitButton.onClick.AddListener(CheckSolution);
     }
 
-    public void ShowPuzzle(List<string> phrases)
+    public void ShowPuzzle(List<string> phrases, List<string> englishPhrases = null)
     {
         RetellingActive = true;
         
@@ -58,17 +60,27 @@ public class RetellingPuzzleManager : MonoBehaviour
         // Set the correct order if not already set
         if (correctOrder.Count == 0)
         {
-            SetCorrectOrder(phrases);
+            SetCorrectOrder(phrases, englishPhrases);
         }
         
         ClearPhrases();
-        CreatePhrases(phrases);
+        CreatePhrases(phrases, englishPhrases);
     }
 
-    public void SetCorrectOrder(List<string> phrases)
+    public void SetCorrectOrder(List<string> phrases, List<string> englishPhrases = null)
     {
         correctOrder.Clear();
+        englishCorrectOrder.Clear();
         correctOrder.AddRange(phrases);
+        if (englishPhrases != null)
+        {
+            englishCorrectOrder.AddRange(englishPhrases);
+        }
+        else
+        {
+            // Use Spanish phrases as fallback for English
+            englishCorrectOrder.AddRange(phrases);
+        }
     }
 
     private void ClearPhrases()
@@ -78,9 +90,18 @@ public class RetellingPuzzleManager : MonoBehaviour
         currentPhrases.Clear();
     }
 
-    private void CreatePhrases(List<string> phrases)
+    private void CreatePhrases(List<string> phrases, List<string> englishPhrases = null)
     {
-        foreach (var phrase in phrases)
+        // Use English or Spanish phrases based on language setting
+        List<string> phrasesToUse = SimpleLanguageButton.isEnglish ? englishPhrases : phrases;
+        
+        // Fallback to Spanish if English is empty
+        if (SimpleLanguageButton.isEnglish && (englishPhrases == null || englishPhrases.Count == 0))
+        {
+            phrasesToUse = phrases;
+        }
+        
+        foreach (var phrase in phrasesToUse)
         {
             GameObject go = Instantiate(phrasePrefab, phraseContainer);
             
@@ -98,35 +119,14 @@ public class RetellingPuzzleManager : MonoBehaviour
                 Debug.LogError($"No TextMeshProUGUI found on phrase prefab for: {phrase}");
                 Debug.LogError($"Prefab name: {phrasePrefab.name}");
                 Debug.LogError($"Created object components: {string.Join(", ", go.GetComponents<Component>().Select(c => c.GetType().Name))}");
-                
-                // Try to add a TextMeshProUGUI component if missing
-                text = go.AddComponent<TextMeshProUGUI>();
-                text.text = phrase;
-                text.fontSize = 16;
-                text.color = Color.black;
-                Debug.Log($"Added TextMeshProUGUI component and set text: {phrase}");
             }
             
-            // Make sure the text is visible and properly sized
-            if (text != null)
-            {
-                var rectTransform = text.GetComponent<RectTransform>();
-                if (rectTransform != null)
-                {
-                    rectTransform.anchorMin = Vector2.zero;
-                    rectTransform.anchorMax = Vector2.one;
-                    rectTransform.offsetMin = Vector2.zero;
-                    rectTransform.offsetMax = Vector2.zero;
-                }
-            }
+            // Add the draggable component
+            var draggable = go.GetComponent<PhraseDraggable>();
+            if (draggable == null)
+                draggable = go.AddComponent<PhraseDraggable>();
             
-            // Check if PhraseDraggable already exists to avoid duplicates
-            var drag = go.GetComponent<PhraseDraggable>();
-            if (drag == null)
-            {
-                drag = go.AddComponent<PhraseDraggable>();
-            }
-            drag.manager = this;
+            draggable.manager = this;
             currentPhrases.Add(go);
         }
     }
@@ -163,32 +163,47 @@ public class RetellingPuzzleManager : MonoBehaviour
 
     public void CheckSolution()
     {
-        if (correctOrder.Count == 0)
+        // Get the current phrases in order
+        var currentOrder = new List<string>();
+        for (int i = 0; i < phraseContainer.childCount; i++)
         {
-            ShowFeedback("No correct order set! Please set the correctOrder list in the inspector.", false);
-            return;
-        }
-        
-        bool correct = true;
-        for (int i = 0; i < correctOrder.Count && i < currentPhrases.Count; i++)
-        {
-            var text = currentPhrases[i].GetComponentInChildren<TextMeshProUGUI>();
-            if (text == null || text.text != correctOrder[i])
+            var child = phraseContainer.GetChild(i);
+            var text = child.GetComponentInChildren<TextMeshProUGUI>();
+            if (text != null)
             {
-                correct = false;
-                break;
+                currentOrder.Add(text.text);
             }
         }
         
-        if (correct)
+        // Use English or Spanish correct order based on language setting
+        List<string> correctOrderToCheck = SimpleLanguageButton.isEnglish ? englishCorrectOrder : correctOrder;
+        
+        // Fallback to Spanish if English is empty
+        if (SimpleLanguageButton.isEnglish && (englishCorrectOrder == null || englishCorrectOrder.Count == 0))
         {
-            ShowFeedback("Correct order! Story rebuilt!", true);
-            // Close the panel after a short delay
-            StartCoroutine(ClosePanelAfterDelay(2f));
+            correctOrderToCheck = correctOrder;
+        }
+        
+        // Check if the order is correct
+        bool isCorrect = currentOrder.SequenceEqual(correctOrderToCheck);
+        
+        if (isCorrect)
+        {
+            ShowFeedback("¡Perfecto! You've rebuilt the story correctly.", true);
         }
         else
         {
-            ShowFeedback("Incorrect order. Try again!", false);
+            ShowFeedback("Not quite right. Try again!", false);
+        }
+    }
+
+    public void RefreshPuzzle()
+    {
+        if (RetellingActive && correctOrder.Count > 0)
+        {
+            // Restart the puzzle with new language
+            ClearPhrases();
+            CreatePhrases(correctOrder, englishCorrectOrder);
         }
     }
 
