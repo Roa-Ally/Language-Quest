@@ -7,6 +7,22 @@ public class FragmentTrigger : MonoBehaviour
     [TextArea(2, 5)]
     public List<string> fragmentLines = new List<string>();
 
+    [Header("Visual Settings")]
+    [SerializeField] private float spriteScale = 3.0f;
+    [SerializeField] private bool hideSpriteWhenTriggered = true;
+
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        // Get the sprite renderer and set its scale
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            transform.localScale = Vector3.one * spriteScale;
+        }
+    }
+
     public void TriggerFragment()
     {
         var manager = FindFirstObjectByType<FragmentDisplayManager>();
@@ -24,6 +40,13 @@ public class FragmentTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             TriggerFragment();
+            
+            // Hide the sprite if enabled
+            if (hideSpriteWhenTriggered && spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+            
             GetComponent<Collider2D>().enabled = false;
         }
     }
