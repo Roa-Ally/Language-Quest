@@ -2377,12 +2377,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughts:
-  - It's beautiful, but wrong. Like walking through a dream that's starting to forget
-    itself.
-  - I can feel it, the end.
-  - The last fragment is close.
-  - "And whatever waits beyond it\u2026 has been waiting a very long time."
-  - I have to keep going.
+  - "The journal\u2019s second fragment should be near."
+  - "And with it\u2026 another piece of him."
+  - Of the story.
+  - "Of what we\u2019ve forgotten."
   triggerOnce: 1
 --- !u!61 &232503799
 BoxCollider2D:
@@ -7435,10 +7433,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughts:
-  - The air is thin here.
-  - The trees no longer whisper, they watch.
-  - Everything is soaked in violet, like the last breath of something ancient.
-  - The green is gone. Even the blue is fading.
+  - "The trees here are taller\u2026 quieter.\r"
+  - "The green has faded into blue \u2014 like the forest is holding its breath.
+    The leaves shimmer with a dull glow, like memories left too long in the dark."
+  - "It feels colder. Not in temperature\u2026 in spirit."
+  - "Whatever was alive here once \u2014 it\u2019s slipping away."
   triggerOnce: 1
 --- !u!61 &735495066
 BoxCollider2D:

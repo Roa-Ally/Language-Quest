@@ -11067,10 +11067,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughts:
-  - Whatever was alive here once, it's slipping away.
-  - The journal's second fragment should be near.
-  - "And with it\u2026 another piece of him."
-  - Of the story, of what we've forgotten.
+  - I clutch the journal tighter. The first page is already glowing faintly. A fragment
+    must be close.
+  - "Something here remembers the story.\r\nI just have to find it\u2026 before it
+    forgets for good."
   triggerOnce: 1
 --- !u!61 &1485503635
 BoxCollider2D:
@@ -15698,10 +15698,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughts:
-  - "The trees here are taller\u2026 quieter."
-  - The green has faded into blue, like the forest is holding its breath.
-  - The leaves shimmer with a dull glow, like memories left too long in the dark.
-  - "It feels colder. Not in temperature\u2026 in spirit."
+  - "The forest looks alive. Green, vibrant\u2026 almost like I remember. But it\u2019s
+    too quiet."
+  - "No birdsong. No wind. Just stillness \u2014 like the trees are holding something
+    in."
   triggerOnce: 1
 --- !u!61 &2110733848
 BoxCollider2D:
