@@ -4613,6 +4613,7 @@ MonoBehaviour:
   - She was the guardian of balance between nature and humans.
   - She had one human foot and one twisted foot.
   - She helped travelers find their way.
+  triggerAct4Part2Events: 0
 --- !u!61 &507518888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14479,6 +14480,7 @@ MonoBehaviour:
   - She became an echo, a memory.
   - She appeared as a long-lost friend.
   - Only those who remember can return her home.
+  triggerAct4Part2Events: 1
 --- !u!61 &1836115323
 BoxCollider2D:
   m_ObjectHideFlags: 0

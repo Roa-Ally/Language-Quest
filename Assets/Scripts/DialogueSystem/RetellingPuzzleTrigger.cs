@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Reflection;
 
 public class RetellingPuzzleTrigger : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class RetellingPuzzleTrigger : MonoBehaviour
         "So he became angry and tricked them",
         "Now he guards the forest forever"
     };
+
+    [Header("Completion Events")]
+    [SerializeField] private bool triggerAct4Part2Events = false;
 
     public void TriggerPuzzle()
     {
@@ -56,10 +60,63 @@ public class RetellingPuzzleTrigger : MonoBehaviour
             }
             
             manager.ShowPuzzle(shuffledPhrases, shuffledEnglishPhrases);
+            
+            // Set up completion callback if this trigger should trigger Act 4 Part 2 events
+            if (triggerAct4Part2Events)
+            {
+                StartCoroutine(WaitForPuzzleCompletion());
+            }
         }
         else
         {
             Debug.LogError("RetellingPuzzleManager not found in scene!");
+        }
+    }
+    
+    private System.Collections.IEnumerator WaitForPuzzleCompletion()
+    {
+        var manager = FindFirstObjectByType<RetellingPuzzleManager>();
+        if (manager == null) yield break;
+        
+        // Wait until the puzzle is no longer active
+        while (RetellingPuzzleManager.RetellingActive)
+        {
+            yield return null;
+        }
+        
+        // Check if the puzzle was completed successfully using the manager's success flag
+        if (manager.WasPuzzleCompletedSuccessfully())
+        {
+            TriggerAct4Part2Events();
+        }
+    }
+    
+    private void TriggerAct4Part2Events()
+    {
+        // Enable SwapManager triggerSwap
+        var swapManager = FindFirstObjectByType<SpriteSwapController>();
+        if (swapManager != null)
+        {
+            // Use reflection to access the private triggerSwap field
+            var triggerSwapField = typeof(SpriteSwapController).GetField("triggerSwap", 
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            if (triggerSwapField != null)
+            {
+                triggerSwapField.SetValue(swapManager, true);
+                Debug.Log("Enabled SwapManager triggerSwap");
+            }
+        }
+        
+        // Enable Tree_0000_0 animator PassedTest parameter
+        var treeObjects = FindObjectsOfType<Animator>();
+        foreach (var animator in treeObjects)
+        {
+            if (animator.gameObject.name == "Tree_0000_0")
+            {
+                animator.SetBool("PassedTest", true);
+                Debug.Log("Set Tree_0000_0 PassedTest to true");
+                break;
+            }
         }
     }
 

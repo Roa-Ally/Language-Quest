@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using System.Linq;
 using System.Collections;
+using System.Reflection;
 
 public class RetellingPuzzleManager : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class RetellingPuzzleManager : MonoBehaviour
     private List<GameObject> currentPhrases = new List<GameObject>();
 
     public static bool RetellingActive = false;
+    private bool puzzleCompletedSuccessfully = false;
 
     private void Start()
     {
@@ -40,6 +42,7 @@ public class RetellingPuzzleManager : MonoBehaviour
     public void ShowPuzzle(List<string> phrases, List<string> englishPhrases = null)
     {
         RetellingActive = true;
+        puzzleCompletedSuccessfully = false; // Reset success flag
         
         // Stop the player immediately when puzzle starts
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
@@ -189,12 +192,20 @@ public class RetellingPuzzleManager : MonoBehaviour
         
         if (isCorrect)
         {
-            ShowFeedback("¡Perfecto! You've rebuilt the story correctly.", true);
+            ShowFeedback("Correct order! Story rebuilt!", true);
+            puzzleCompletedSuccessfully = true;
+            StartCoroutine(ClosePanelAfterDelay(2f));
         }
         else
         {
-            ShowFeedback("Not quite right. Try again!", false);
+            ShowFeedback("Incorrect order. Try again!", false);
+            puzzleCompletedSuccessfully = false;
         }
+    }
+    
+    public bool WasPuzzleCompletedSuccessfully()
+    {
+        return puzzleCompletedSuccessfully;
     }
 
     public void RefreshPuzzle()
