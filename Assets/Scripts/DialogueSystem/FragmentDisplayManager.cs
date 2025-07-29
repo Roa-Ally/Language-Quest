@@ -34,6 +34,9 @@ public class FragmentDisplayManager : MonoBehaviour
         if (fragmentPanel != null)
             fragmentPanel.SetActive(true);
         
+        // Show language button
+        SimpleLanguageButton.ShowLanguageButton();
+        
         // Store both texts
         currentFragmentText = fragment;
         currentEnglishFragmentText = fragment; // This will be set separately
@@ -74,6 +77,9 @@ public class FragmentDisplayManager : MonoBehaviour
         if (fragmentPanel != null)
             fragmentPanel.SetActive(false);
         FragmentActive = false;
+        
+        // Hide language button
+        SimpleLanguageButton.HideLanguageButton();
         
         if (onAddToJournal != null)
             onAddToJournal.Invoke();

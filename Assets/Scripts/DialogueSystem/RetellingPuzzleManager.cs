@@ -51,6 +51,10 @@ public class RetellingPuzzleManager : MonoBehaviour
         
         if (retellingPanel != null)
             retellingPanel.SetActive(true);
+        
+        // Show language button
+        SimpleLanguageButton.ShowLanguageButton();
+        
         if (titleText != null)
             titleText.text = "Rebuild Chullachaqui's Story";
         if (instructionText != null)
@@ -236,6 +240,9 @@ public class RetellingPuzzleManager : MonoBehaviour
         if (feedbackText != null)
             feedbackText.gameObject.SetActive(false);
         RetellingActive = false;
+        
+        // Hide language button
+        SimpleLanguageButton.HideLanguageButton();
         
         // Resume player movement when puzzle ends
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();

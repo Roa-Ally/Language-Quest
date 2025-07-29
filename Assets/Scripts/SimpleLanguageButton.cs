@@ -8,9 +8,12 @@ public class SimpleLanguageButton : MonoBehaviour
     public TextMeshProUGUI buttonText;
     
     public static bool isEnglish = false; // Default to Spanish
+    private static SimpleLanguageButton instance;
     
     void Start()
     {
+        instance = this;
+        
         if (languageButton != null)
         {
             languageButton.onClick.AddListener(ToggleLanguage);
@@ -20,6 +23,12 @@ public class SimpleLanguageButton : MonoBehaviour
             Debug.LogError("SimpleLanguageButton: languageButton is null! Assign the button in the inspector.");
         }
         UpdateButtonText();
+        
+        // Start hidden
+        if (languageButton != null)
+        {
+            languageButton.gameObject.SetActive(false);
+        }
     }
     
     public void ToggleLanguage()
@@ -58,6 +67,23 @@ public class SimpleLanguageButton : MonoBehaviour
         else
         {
             Debug.LogError("SimpleLanguageButton: buttonText is null! Assign the text component in the inspector.");
+        }
+    }
+    
+    // Static method to show/hide the language button
+    public static void ShowLanguageButton()
+    {
+        if (instance != null && instance.languageButton != null)
+        {
+            instance.languageButton.gameObject.SetActive(true);
+        }
+    }
+    
+    public static void HideLanguageButton()
+    {
+        if (instance != null && instance.languageButton != null)
+        {
+            instance.languageButton.gameObject.SetActive(false);
         }
     }
 } 

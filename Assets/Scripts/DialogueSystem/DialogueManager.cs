@@ -108,6 +108,9 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         lines.Clear();
         dialogueBox.SetActive(true);
+        
+        // Show language button
+        SimpleLanguageButton.ShowLanguageButton();
 
         foreach (DialogueLine line in dialogue.lines)
         {
@@ -328,6 +331,9 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueActive = false;
         dialogueBox.SetActive(false);
+        
+        // Hide language button
+        SimpleLanguageButton.HideLanguageButton();
         
         // Resume player movement when dialogue ends
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
