@@ -13,12 +13,10 @@ public class SimpleLanguageButton : MonoBehaviour
     void Start()
     {
         instance = this;
-        Debug.Log($"SimpleLanguageButton: Start called. Instance set to: {instance != null}, LanguageButton: {languageButton != null}");
         
         if (languageButton != null)
         {
             languageButton.onClick.AddListener(ToggleLanguage);
-            Debug.Log("SimpleLanguageButton: Language button listener added");
         }
         else
         {
@@ -30,7 +28,6 @@ public class SimpleLanguageButton : MonoBehaviour
         if (languageButton != null)
         {
             languageButton.gameObject.SetActive(false);
-            Debug.Log("SimpleLanguageButton: Language button started hidden");
         }
     }
     
@@ -83,11 +80,9 @@ public class SimpleLanguageButton : MonoBehaviour
     // Static method to show/hide the language button
     public static void ShowLanguageButton()
     {
-        Debug.Log($"SimpleLanguageButton: ShowLanguageButton called. Instance: {instance != null}, LanguageButton: {instance?.languageButton != null}");
         if (instance != null && instance.languageButton != null)
         {
             instance.languageButton.gameObject.SetActive(true);
-            Debug.Log("SimpleLanguageButton: Language button activated successfully");
         }
         else
         {
@@ -97,11 +92,9 @@ public class SimpleLanguageButton : MonoBehaviour
     
     public static void HideLanguageButton()
     {
-        Debug.Log($"SimpleLanguageButton: HideLanguageButton called. Instance: {instance != null}, LanguageButton: {instance?.languageButton != null}");
         if (instance != null && instance.languageButton != null)
         {
             instance.languageButton.gameObject.SetActive(false);
-            Debug.Log("SimpleLanguageButton: Language button deactivated successfully");
         }
         else
         {
