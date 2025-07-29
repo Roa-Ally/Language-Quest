@@ -81,6 +81,8 @@ public class FragmentDisplayManager : MonoBehaviour
         // Hide language button
         SimpleLanguageButton.HideLanguageButton();
         
+        // Don't add to inventory here since fragments are already added in FragmentTrigger
+        
         if (onAddToJournal != null)
             onAddToJournal.Invoke();
         

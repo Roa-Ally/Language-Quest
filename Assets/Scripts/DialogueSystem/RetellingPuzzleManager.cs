@@ -244,6 +244,13 @@ public class RetellingPuzzleManager : MonoBehaviour
         // Hide language button
         SimpleLanguageButton.HideLanguageButton();
         
+        // Add puzzle to inventory
+        var inventoryManager = InventoryManager.Instance;
+        if (inventoryManager != null)
+        {
+            inventoryManager.AddPuzzle();
+        }
+        
         // Resume player movement when puzzle ends
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)

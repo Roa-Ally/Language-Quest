@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Art Map 4.unity
     guid: b19f8e22754d68746a0c8dd90407a624
+  - enabled: 1
+    path: Assets/Scenes/End Scene.unity
+    guid: 16b8cc595b8ac0540a08301085922f87
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
