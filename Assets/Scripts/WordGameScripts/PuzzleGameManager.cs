@@ -87,7 +87,7 @@ public class PuzzleGameManager : MonoBehaviour
         if (selected == correctAnswer)
         {
             feedbackText.text = "Correct!";
-            feedbackText.color = Color.green;
+            feedbackText.color = new Color(0.1f, 0.6f, 0.1f); // Dark green to match retelling puzzle
 
             foreach (var btn in optionButtons)
                 btn.interactable = false;
