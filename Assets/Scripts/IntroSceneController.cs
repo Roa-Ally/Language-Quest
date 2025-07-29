@@ -34,14 +34,15 @@ public class IntroSceneController : MonoBehaviour
         "",
         "Because when we forget the stories that bind us to the earth…\neven the roots begin to die."
     };
+    
     [SerializeField] private float baseMessageDisplayTime = 4f; // Base time for messages
     [SerializeField] private float shortMessageDisplayTime = 2.5f; // For shorter lines
     [SerializeField] private float characterTimeMultiplier = 0.02f; // Additional time per character
     
     [Header("Skip Options")]
     [SerializeField] private bool allowSkip = true;
-    [SerializeField] private KeyCode skipEntireIntroKey = KeyCode.Space; // Skip entire intro
-    [SerializeField] private KeyCode skipToNextKey = KeyCode.Return; // Skip to next text line
+    [SerializeField] private KeyCode skipEntireIntroKey = KeyCode.Return; // Skip entire intro
+    [SerializeField] private KeyCode skipToNextKey = KeyCode.Space; // Skip to next text line
     [SerializeField] private KeyCode skipToNextKeyAlt = KeyCode.Mouse0; // Alternative skip to next (mouse click)
     
     private int currentMessageIndex = 0;
@@ -62,7 +63,11 @@ public class IntroSceneController : MonoBehaviour
         // Show skip instruction
         if (skipInstructionText != null)
         {
-            skipInstructionText.text = $"Press {skipEntireIntroKey} to skip intro, {skipToNextKey} or click to continue";
+            // Determine if this is the end scene or intro scene
+            string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+            string skipText = sceneName == "End Scene" ? "ending" : "intro";
+            
+            skipInstructionText.text = $"Press {skipToNextKey} or click to continue, {skipEntireIntroKey} to skip {skipText}";
             skipInstructionText.alpha = 0f; // Start hidden
         }
         

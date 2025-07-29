@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private string currentLineText = "";
     private bool shouldShowContinueIndicator = true;
+    private int currentLineIndex = -1; // Track which line we're currently on
 
     public static bool DialogueActive = false;
 
@@ -108,12 +109,16 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         lines.Clear();
         dialogueBox.SetActive(true);
+        
+        // Show language button
+        SimpleLanguageButton.ShowLanguageButton();
 
         foreach (DialogueLine line in dialogue.lines)
         {
             lines.Enqueue(line);
         }
 
+        currentLineIndex = 0; // Start at first line
         DisplayNextLine();
     }
 
@@ -134,6 +139,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLine currentLine = lines.Dequeue();
+        currentLineIndex++; // Increment line index
         
         speakerNameText.text = currentLine.speaker;
         
@@ -155,9 +161,11 @@ public class DialogueManager : MonoBehaviour
             shouldShowContinueIndicator = false;
         }
         
-        typewriterCoroutine = StartCoroutine(TypeText(displayText));
+        // Hide continue indicator before starting new text
         if (dialogueContinueIndicator != null)
             dialogueContinueIndicator.gameObject.SetActive(false);
+        
+        typewriterCoroutine = StartCoroutine(TypeText(displayText));
 
         if (currentLine.portrait != null)
         {
@@ -175,14 +183,20 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
         dialogueText.text = "";
         shouldShowContinueIndicator = true;
+        
         foreach (char c in text)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(0.02f);
         }
+        
         isTyping = false;
-        if (dialogueContinueIndicator != null && shouldShowContinueIndicator)
+        
+        // Only show continue indicator if we're not showing choices and the flag is still true
+        if (dialogueContinueIndicator != null && shouldShowContinueIndicator && !showingChoices)
+        {
             dialogueContinueIndicator.gameObject.SetActive(true);
+        }
     }
 
     private void ShowChoices()
@@ -329,6 +343,9 @@ public class DialogueManager : MonoBehaviour
         DialogueActive = false;
         dialogueBox.SetActive(false);
         
+        // Hide language button
+        SimpleLanguageButton.HideLanguageButton();
+        
         // Resume player movement when dialogue ends
         PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
@@ -339,16 +356,65 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentDialogue != null && DialogueActive)
         {
-            // Store current state
-            bool wasShowingChoices = showingChoices;
-            
-            // Restart the current dialogue with new language
-            StartDialogue(currentDialogue);
-            
-            // If we were showing choices, show them again
-            if (wasShowingChoices)
+            // Always try to update dialogue text first (if we have a current line)
+            if (dialogueText != null && currentDialogue.lines != null && currentLineIndex >= 0 && currentLineIndex < currentDialogue.lines.Length)
             {
-                ShowChoices();
+                // Get the current line directly by index
+                DialogueLine currentLine = currentDialogue.lines[currentLineIndex];
+                
+                // Get the text in the new language
+                string newText = SimpleLanguageButton.isEnglish ? currentLine.englishText : currentLine.sentence;
+                
+                // Fallback to Spanish if English is empty
+                if (string.IsNullOrEmpty(newText))
+                {
+                    newText = currentLine.sentence;
+                }
+                
+                // Update the text
+                currentLineText = newText;
+                dialogueText.text = newText;
+                
+                // If we were typing, stop it and show full text
+                if (isTyping)
+                {
+                    if (typewriterCoroutine != null)
+                    {
+                        StopCoroutine(typewriterCoroutine);
+                    }
+                    isTyping = false;
+                    
+                    // Show continue indicator if it should be shown
+                    if (dialogueContinueIndicator != null && shouldShowContinueIndicator)
+                    {
+                        dialogueContinueIndicator.gameObject.SetActive(true);
+                    }
+                }
+            }
+            else
+            {
+                // Try to use the last valid line index
+                if (currentDialogue.lines != null && currentDialogue.lines.Length > 0)
+                {
+                    int validIndex = Mathf.Clamp(currentLineIndex, 0, currentDialogue.lines.Length - 1);
+                    
+                    DialogueLine currentLine = currentDialogue.lines[validIndex];
+                    string newText = SimpleLanguageButton.isEnglish ? currentLine.englishText : currentLine.sentence;
+                    
+                    if (string.IsNullOrEmpty(newText))
+                    {
+                        newText = currentLine.sentence;
+                    }
+                    
+                    currentLineText = newText;
+                    dialogueText.text = newText;
+                }
+            }
+            
+            // If we're showing choices, also refresh the choice text
+            if (showingChoices)
+            {
+                ShowChoices(); // This will refresh the choice text with new language
             }
         }
     }
