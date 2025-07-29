@@ -579,8 +579,8 @@ MonoBehaviour:
   shortMessageDisplayTime: 2.5
   characterTimeMultiplier: 0.02
   allowSkip: 1
-  skipEntireIntroKey: 32
-  skipToNextKey: 13
+  skipEntireIntroKey: 13
+  skipToNextKey: 32
   skipToNextKeyAlt: 323
 --- !u!1 &123456806
 GameObject:
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Space or Return to skip
+  m_text: Press Space or click to continue, Return to skip ending
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89d8d68b6e59c4ff196d756514d81d86, type: 2}
   m_sharedMaterial: {fileID: 557705853841716614, guid: 89d8d68b6e59c4ff196d756514d81d86, type: 2}
