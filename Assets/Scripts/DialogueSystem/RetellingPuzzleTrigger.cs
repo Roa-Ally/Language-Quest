@@ -118,6 +118,43 @@ public class RetellingPuzzleTrigger : MonoBehaviour
                 break;
             }
         }
+        
+        // Start the delay before transitioning to end scene
+        StartCoroutine(DelayToEndScene());
+    }
+    
+    private System.Collections.IEnumerator DelayToEndScene()
+    {
+        Debug.Log("Starting 12 second delay before end scene transition...");
+        
+        // Wait 12 seconds
+        yield return new WaitForSeconds(12f);
+        
+        Debug.Log("Delay complete, transitioning to End Scene...");
+        
+        // Check if scene exists in build settings
+        bool sceneExists = false;
+        for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string scenePath = UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i);
+            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+            if (sceneName == "End Scene")
+            {
+                sceneExists = true;
+                Debug.Log($"Found End Scene at build index {i}");
+                break;
+            }
+        }
+        
+        if (!sceneExists)
+        {
+            Debug.LogError("End Scene not found in build settings! Please add it to Build Settings > Scenes in Build.");
+        }
+        else
+        {
+            // Transition to end scene
+            SimpleSceneTransition.Instance.TransitionToScene("End Scene");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
